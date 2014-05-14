@@ -1,0 +1,37 @@
+﻿doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title PeopleIsSpeech
+    link(href='/css/bootstrap.css', rel='stylesheet')
+    link(href='/css/sticky-footer-navbar.css', rel='stylesheet')
+  body
+    // Wrap all page content here
+    #wrap
+      // Fixed navbar
+      .navbar.navbar-default.navbar-fixed-top.navbar-inverse
+        .container
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='#') PeopleIsSpeech
+          .collapse.navbar-collapse
+            ul.nav.navbar-nav
+    #content
+     block content
+    #footer
+      .container
+        p.text-muted.credit.navbar-inverse
+          
+    //
+       Bootstrap core JavaScript
+    //================================================== 
+    // Placed at the end of the document so the pages load faster
+    script(src='/js/jquery.js')
+    script(src='/js/bootstrap.min.js')
+    script(src='/js/index.js')

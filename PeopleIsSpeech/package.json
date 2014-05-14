@@ -1,0 +1,17 @@
+{
+  "name": "PeopleIsSpeech",
+  "version": "0.0.0",
+  "description": "PeopleIsSpeech",
+  "main": "app.js",
+  "author": {
+    "name": "Cody",
+    "email": ""
+  },
+  "dependencies": {
+    "express": "3.4.4",
+    "jade": "*",
+    "stylus": "*",
+    "twitter-bootstrap-3.0.0": "~3.0.0",
+    "request": "~2.34.0"
+  }
+}

@@ -5,7 +5,6 @@ exports.legislators = function(req, res){
   if (!error && response.statusCode == 200) {
      var data = JSON.parse(body);
     res.render('data',{data:data.results});
-  // res.render('data', { body: 'PplIsSpeech'});
    }
 })
  

@@ -37,6 +37,7 @@
     <Compile Include="public\js\jquery.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\data.js" />
+    <Content Include="iisnode.yml" />
     <Content Include="package.json" />
     <Content Include="public\css\sticky-footer-navbar.css" />
     <Content Include="public\css\bootstrap-theme.css" />

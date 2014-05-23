@@ -29,7 +29,15 @@ body {
     height:25px;
 
 }
-
+.phone {
+    padding: 5px 5px 0 0;
+    font-size:25px;
+}
+.face {
+    width:155px;
+padding: 5px 2px 2px 0;
+float:left;
+}
 
 /* Custom page CSS
 -------------------------------------------------- */
@@ -49,4 +57,25 @@ body > .container {
 
 code {
   font-size: 80%;
+}
+
+@media screen and (min-width: 300px) {
+    /* Remove the padding we set earlier */
+    .col-md-4 {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 315px) {
+    /* Remove the padding we set earlier */
+    h1 {
+    font-size:24px;
+    }
+
+    .col-md-4 {
+        height: 100px;
+    }
+    .face{
+        width:75px;
+    }
 }

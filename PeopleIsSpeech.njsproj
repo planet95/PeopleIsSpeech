@@ -5,6 +5,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>ExpressApp7</Name>
     <RootNamespace>ExpressApp7</RootNamespace>
+    <NameOfLastUsedPublishProfile>PeopleIsSpeech - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -39,7 +40,7 @@
     <Compile Include="routes\data.js" />
     <Content Include="iisnode.yml" />
     <Content Include="package.json" />
-    <Content Include="public\css\sticky-footer-navbar.css" />
+    <Content Include="public\css\site.css" />
     <Content Include="public\css\bootstrap-theme.css" />
     <Content Include="public\css\bootstrap-theme.min.css" />
     <Content Include="public\css\bootstrap.css" />

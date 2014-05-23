@@ -3,9 +3,16 @@
   h1  #{data[0].state_name} - #{data[0].district}
  div.container
   div.row
-   each user in data
-    div.col-md-4       
-     img(src="http://theunitedstates.io/images/congress/225x275/#{user.bioguide_id}.jpg",class="face")
-     span #{user.first_name} #{user.last_name} [#{user.party}]<br/> 
+   each user,i in data
+    div.col-md-4
+     if(user.chamber == "house") 
+      h4 House Representative
+     else if(user.chamber == "senate")
+      h4 Senator       
+     a(href="#{user.website}",target="_blank",class="website"): img(src="http://theunitedstates.io/images/congress/225x275/#{user.bioguide_id}.jpg",class="face")
+     span #{user.title}. #{user.first_name} #{user.last_name} [#{user.party}]<br/> 
      a(href="tel:#{user.phone}", title="#{user.phone}",class="phone"): i.glyphicon.glyphicon-earphone
      a(href="https://twitter.com/#{user.twitter_id}",target="_blank"): img(src="http://upload.wikimedia.org/wikipedia/en/9/9f/Twitter_bird_logo_2012.svg",class="twitter_icon")
+     a(href="https://facebook.com/#{user.facebook_id}",target="_blank",class="facebook"): span   f   
+     a(href="https://youtube.com/#{user.youtube_id}",target="_blank",class="youtube"): i.glyphicon.glyphicon-expand
+     a(href="#{user.contact_form}",class="website"): i.glyphicon.glyphicon-globe

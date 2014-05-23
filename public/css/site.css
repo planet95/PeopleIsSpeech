@@ -17,26 +17,35 @@ body {
   height: 60px;
   background-color: #191210;
 }
-#senate span{
-    font-weight:bold;
-}
-
-#house span{
+span{
     font-weight:bold;
 }
 
 .twitter_icon{
     height:25px;
-
+    margin-bottom:15px;
 }
 .phone {
     padding: 5px 5px 0 0;
     font-size:25px;
 }
 .face {
-    width:155px;
-padding: 5px 2px 2px 0;
+    border: 2px;
+    border-color: red;
+    width:115px;
+padding: 5px 12px 2px 0;
 float:left;
+}
+.youtube {
+    color:red;
+font-size:26px;
+}
+.website {
+font-size:26px;
+padding-left:2px;
+}
+.facebook {
+font-size:28px;
 }
 
 /* Custom page CSS
@@ -73,7 +82,7 @@ code {
     }
 
     .col-md-4 {
-        height: 100px;
+        height: 125px;
     }
     .face{
         width:75px;

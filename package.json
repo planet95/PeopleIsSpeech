@@ -8,10 +8,10 @@
     "email": ""
   },
   "dependencies": {
-    "azure-cli": "^0.8.3",
-    "express": "3.4.4",
+    "azure-cli": "^0.8.17",
+    "express": "^3.4.4",
     "jade": "*",
-    "request": "~2.34.0",
+    "request": "^2.34.0",
     "twitter-bootstrap-3.0.0": "~3.0.0"
   },
   "repository": {

@@ -31,12 +31,12 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="routes\index.js" />
     <Compile Include="server.js" />
     <Compile Include="public\js\bootstrap.js" />
     <Compile Include="public\js\bootstrap.min.js" />
     <Compile Include="public\js\index.js" />
     <Compile Include="public\js\jquery.js" />
-    <Compile Include="routes\index.js" />
     <Compile Include="routes\data.js" />
     <Content Include="iisnode.yml" />
     <Content Include="package.json" />

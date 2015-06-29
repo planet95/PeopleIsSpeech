@@ -7,46 +7,50 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background-color:#ECECEE;
+  color:#000;
 }
-#content {padding-top:25px;}
+#content {padding:50px 0 50px 0;}
 #footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #191210;
+  background-color: #000;
 }
 span{
     font-weight:bold;
 }
 
-.twitter_icon{
-    height:25px;
-    margin-bottom:15px;
+
+.rep i{
+font-size:26px;
+color:#2E4359;
+padding-left:10px;
+line-height:25px;
 }
-.phone {
-    padding: 5px 5px 0 0;
-    font-size:25px;
+
+.rep i:hover{
+  color:#B5191D;
 }
+
+div.R
+{
+  border:2px solid #B5191D;
+}
+
+div.D{
+  border:2px solid #2E4359;
+}
+
+
 .face {
-    border: 2px;
-    border-color: red;
     width:115px;
-padding: 5px 12px 2px 0;
+padding: 5px 12px 15px 0;
 float:left;
 }
-.youtube {
-    color:red;
-font-size:26px;
-}
-.website {
-font-size:26px;
-padding-left:2px;
-}
-.facebook {
-font-size:28px;
-}
+
 
 /* Custom page CSS
 -------------------------------------------------- */
@@ -67,6 +71,21 @@ body > .container {
 code {
   font-size: 80%;
 }
+
+.rep{
+  padding: 10px;
+  width: 85%;
+  height: 85%;
+  background-color: #6E6E71;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-header{
+  border-bottom:1px solid #B5191D;
+}
+
+
 
 @media screen and (min-width: 300px) {
     /* Remove the padding we set earlier */

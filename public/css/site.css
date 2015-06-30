@@ -44,11 +44,18 @@ div.D{
   border:2px solid #2E4359;
 }
 
+.rep{
+  margin-left: auto;
+  margin-right: auto;
+  width:100%;
+  min-height:180px;
+}
 
 .face {
-    width:115px;
-padding: 5px 12px 15px 0;
-float:left;
+  width: 110px;
+  margin-right: 15px;
+  padding-right: 4px;
+  float:left;
 }
 
 
@@ -72,17 +79,13 @@ code {
   font-size: 80%;
 }
 
-.rep{
-  padding: 10px;
-  width: 90%;
-  height: 90%;
-  background-color: #6E6E71;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .page-header{
   border-bottom:1px solid #B5191D;
+}
+
+.col-md-4{
+  margin-bottom:10px;
 }
 
 
@@ -90,7 +93,7 @@ code {
 @media screen and (min-width: 300px) {
     /* Remove the padding we set earlier */
     .col-md-4 {
-        height: 200px;
+        min-height: 200px;
     }
 }
 
@@ -101,7 +104,7 @@ code {
     }
 
     .col-md-4 {
-        height: 125px;
+        min-height: 160px;
     }
     .face{
         width:75px;

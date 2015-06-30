@@ -8,14 +8,15 @@
      div.rep(class="#{user.party}")    
        div.face
          a(href="#{user.website}",target="_blank",class="website"): img(src="http://theunitedstates.io/images/congress/225x275/#{user.bioguide_id}.jpg",class="face")
-       span #{user.title}. #{user.first_name} #{user.last_name} [#{user.party}]<br/> 
+       span #{user.title}. #{user.first_name} #{user.last_name} <br/> 
        if(user.chamber == "house") 
         p House Representative
        else if(user.chamber == "senate")
         p Senator   
-       a(href="tel:#{user.phone}", title="#{user.phone}",class="phone"): i.fa.fa-phone
-       a(href="https://twitter.com/#{user.twitter_id}",target="_blank"): i.fa.fa-twitter
-       a(href="https://facebook.com/#{user.facebook_id}",target="_blank",class="facebook"): i.fa.fa-facebook
-       a(href="https://youtube.com/#{user.youtube_id}",target="_blank",class="youtube"): i.fa.fa-youtube-play
-       a(href="#{user.contact_form}",class="website"): i.fa.fa-globe
-       hr
+       div.icons
+        a(href="tel:#{user.phone}", title="#{user.phone}",class="phone"): i.fa.fa-phone
+        a(href="https://twitter.com/#{user.twitter_id}",target="_blank"): i.fa.fa-twitter
+        a(href="https://facebook.com/#{user.facebook_id}",target="_blank",class="facebook"): i.fa.fa-facebook
+        a(href="https://youtube.com/#{user.youtube_id}",target="_blank",class="youtube"): i.fa.fa-youtube-play
+        a(href="#{user.contact_form}",class="website"): i.fa.fa-globe
+        hr

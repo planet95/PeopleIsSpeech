@@ -21,6 +21,7 @@ var appobj = {};
 
    function successCallback(position) {
    var output = gpsInfo(position);
+   output = "Finding Your Reps...";
    $("p.lead").prepend(output);
    $("#c").attr('href','http://maps.google.com/maps?q=' + position.coords.latitude + '+' + position.coords.longitude);
    getLegislators(position.coords.latitude,position.coords.longitude);

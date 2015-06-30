@@ -5,8 +5,8 @@
   div.row
    each user,i in data
     div.col-md-4
-     div.rep   
-       div.face(class="#{user.party}") 
+     div.rep(class="#{user.party}")    
+       div.face
          a(href="#{user.website}",target="_blank",class="website"): img(src="http://theunitedstates.io/images/congress/225x275/#{user.bioguide_id}.jpg",class="face")
        span #{user.title}. #{user.first_name} #{user.last_name} [#{user.party}]<br/> 
        if(user.chamber == "house") 

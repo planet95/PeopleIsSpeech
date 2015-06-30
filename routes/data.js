@@ -6,6 +6,16 @@ exports.legislators = function(req, res){
      var data = JSON.parse(data);
     res.render('data',{data:data.results});
    }
-})
- 
-};
+});};
+
+
+exports.zipcode = function(req, res){
+    var url = 'https://congress.api.sunlightfoundation.com/legislators/locate?zip='+req.param("zip")+'&apikey=4f40f44747c44a22ba19287b9e953e4c';
+    request(url, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+     var data = JSON.parse(data);
+     console.log(data);
+    res.render('data',{data:data.results});
+   }
+});};
+

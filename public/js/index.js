@@ -11,10 +11,10 @@ var appobj = {};
    };
 
    app.init = function() {
-      if (window.navigator.geolocation) {
+      if (window.navigator.geolocation && location.pathname == '/') {
          navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
       } else {
-         alert('Your browser does not natively support geolocation.');
+      //   alert('Your browser does not natively support geolocation.');
       }
 
    };

@@ -1,8 +1,4 @@
-﻿// HTML5 geolocation demo
-// http://jsfiddle.net/cjus/EBVLz/
-// http://maps.google.com/maps?q=18.77362+98.98803
-
-var appobj = {};
+﻿var appobj = {};
 (function(app) {
    var options = {
       enableHighAccuracy: true,

@@ -21,6 +21,7 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
+app.use(logErrors);
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -31,8 +32,14 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/district', data.legislators);
+app.get('/search', routes.search);
 app.get('/search/:zip', data.zipcode);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+function logErrors(err, req, res, next) {
+  console.error(err.stack);
+  next(err);
+}

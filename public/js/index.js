@@ -9,10 +9,7 @@
    app.init = function() {
       if (window.navigator.geolocation && location.pathname == '/') {
          navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
-      } else {
-      //   alert('Your browser does not natively support geolocation.');
-      }
-
+      } 
    };
 
    function successCallback(position) {
@@ -48,26 +45,31 @@
    function getLegislators(lat, lon){
          $.get( '/district?lat='+lat+'&lon='+lon, function( data ) {
              $("#content .container").html(data);
-          //$(".page-header h1").text(data.results[0].state_name + '-' +data.results[0].district);
-          //$("p.lead").append('<br/><h2>Congressional Representative</h2><b>'+data.results[0].first_name + ' ' + data.results[0].last_name +'</b><br/>' +'Phone: <a href="tel:'+data.results[0].phone+'">'+data.results[0].phone+'</a>');
-          //$("p.lead").append('<h2>Senators</h2>'+'<b>'+data.results[1].first_name + ' ' + data.results[1].last_name +'</b><br/>Phone: <a href="tel:'+data.results[1].phone+'">'+data.results[1].phone+'</a>'+'<br/><b>'+data.results[2].first_name + ' ' + data.results[2].last_name +'</b><br/>Phone: <a href="tel:'+data.results[2].phone+'">'+data.results[2].phone+'</a>' );
-            });
+          });
+    }
+    
+    function search(zip){
+          document.location.href = '/search/' + zip;
     }
 
    function errorCallback(error) {
       switch (error.code) {
          case error.PERMISSION_DENIED:
-            alert('You have denied access to your position.');
+         console.log ( 'You have denied access to your position.' );
+         document.location.href = '/search';
+      //      alert('You have denied access to your position.');
             break;
          case error.POSITION_UNAVAILABLE:
-            alert('There was a problem getting your position.');
+          console.log ( 'There was a problem getting your position.' );
+      //      alert('There was a problem getting your position.');
             break;
          case error.TIMEOUT:
-            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-            alert('The application has timed out attempting to get your location.');
+                   console.log ( 'Timeout' );
+            navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
+        //    alert('The application has timed out attempting to get your location.');
             break;
       }
-      alert(error.message);
+    //  alert(error.message);
    }
 
 })(appobj);

@@ -50,6 +50,7 @@ span{
 font-size:36px;
 color:#2E4359;
 padding-left:12px;
+padding-bottom:5px;
 line-height:35px;
 }
 
@@ -65,11 +66,11 @@ h1{
 
 div.R
 {
-  border:2px solid #B5191D;
+  border:3px solid #B5191D;
 }
 
 div.D{
-  border:2px solid #0d76bd ;
+  border:3px solid #0d76bd ;
 }
 
 .rep{
@@ -156,7 +157,7 @@ code {
 }
 
 .col-md-4{
-  margin-bottom:10px;
+  margin-bottom:30px;
 }
 
 .search{
@@ -175,12 +176,14 @@ code {
   text-align: center;
 }
 
-@media screen and (min-width: 300px) {
+@media screen and (max-width: 1199px) and (min-width:992px) {
     /* Remove the padding we set earlier */
     .col-md-4 {
         min-height: 200px;
+        min-width: 400px;
     }
 }
+
 
 @media screen and (max-width: 315px) {
     /* Remove the padding we set earlier */

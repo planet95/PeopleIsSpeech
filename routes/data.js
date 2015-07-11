@@ -1,6 +1,6 @@
 ﻿var request = require('request');
 exports.legislators = function(req, res){
-    var url = 'https://congress.api.sunlightfoundation.com/legislators/locate?latitude='+req.query.lat+'&longitude='+req.query.lon+'&apikey=4f40f44747c44a22ba19287b9e953e4c';
+    var url = 'https://congress.api.sunlightfoundation.com/legislators/locate?latitude='+req.query.lat+'&longitude='+req.query.lon+'&apikey=4f40f44747c44a22ba19287b9e953e4c&order=chamber_asc';
     request(url, function (error, response, data) {
   if (!error && response.statusCode == 200) {
      var data = JSON.parse(data);
@@ -18,7 +18,7 @@ exports.legislators = function(req, res){
 
 
 exports.zipcode = function (req, res) {
-  var url = 'https://congress.api.sunlightfoundation.com/legislators/locate?zip=' + req.param("zip") + '&apikey=4f40f44747c44a22ba19287b9e953e4c';
+  var url = 'https://congress.api.sunlightfoundation.com/legislators/locate?zip=' + req.param("zip") + '&apikey=4f40f44747c44a22ba19287b9e953e4c&order=chamber_asc';
   request(url, function (error, response, data) {
     if (!error && response.statusCode == 200) {
       var data = JSON.parse(data);
@@ -31,6 +31,7 @@ exports.zipcode = function (req, res) {
           districts.push(data.results[i].district);
         }
       }
+      console.log(districts);
       if (data.count != 0)
         res.render('results', { data: data.results, district: districts});
       else
@@ -46,8 +47,6 @@ exports.districts = function (req, res) {
  var url = encodeURI('http://gis.govtrack.us/boundaries/cd-2012/'+ req.param("state")+'-' + req.param("district") + '/shape');
  console.log(url);
   request(url, function (error, response, data) {
-    console.log('request sent');
-    console.log(error);
     if (!error && response.statusCode == 200) {
       var data = JSON.parse(data);
       console.log(data);

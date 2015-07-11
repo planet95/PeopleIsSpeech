@@ -84,6 +84,8 @@ appobj.init();
 var map;
 var infoWindow;
 function getBoundaries(state, district) {
+  if(district.toString().length == 1)
+  district = '0' + district.toString();
   $.get('/boundary?state=' + state.toLowerCase() + '&district=' + district, function (data) {
 
     initialize(data.coordinates[0]);

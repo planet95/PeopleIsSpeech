@@ -109,10 +109,10 @@ function initialize(coords) {
     fillOpacity: 0.35
   });
   var mapOptions = {
-    zoom: 9,
-    draggable: false,
+   zoom: 8,
+ //   draggable: false,
     center: bounds.getCenter(),
-    mapTypeId: google.maps.MapTypeId.TERRAIN
+    mapTypeId: google.maps.MapTypeId.STREET
   };
   var map = new google.maps.Map(document.getElementById('map-canvas'),
     mapOptions);

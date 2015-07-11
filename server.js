@@ -32,6 +32,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/district', data.legislators);
+app.get('/boundary', data.districts);
 app.get('/search', routes.search);
 app.post('/search', routes.searchpost);
 app.get('/search/:zip', data.zipcode);

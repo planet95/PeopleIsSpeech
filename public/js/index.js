@@ -16,7 +16,6 @@
    var output = gpsInfo(position);
    output = "Finding Your Reps...";
    $("p.lead").prepend(output);
-   $("#c").attr('href','http://maps.google.com/maps?q=' + position.coords.latitude + '+' + position.coords.longitude);
    getLegislators(position.coords.latitude,position.coords.longitude);
    }
 
@@ -46,7 +45,10 @@
          $.get( '/district?lat='+lat+'&lon='+lon, function( data ) {
              $("#content .container").html(data);
           });
+          
+          
     }
+  
     
     function search(zip){
           document.location.href = '/search/' + zip;
@@ -71,9 +73,55 @@
       }
     //  alert(error.message);
    }
+   
+   
+   
+
 
 })(appobj);
 
 appobj.init();
+var map;
+var infoWindow;
+   function getBoundaries(state, district){
+         $.get( '/boundary?state='+state.toLowerCase()+'&district='+district, function( data ) {
+           
+           initialize(data.shape[0]);
 
+          }); 
+          
+    }
+    
+       function initialize(coords) {
+  var mapOptions = {
+    zoom: 8,
+    center: new google.maps.LatLng(34.057762,  -118.63315850000001),
+    mapTypeId: google.maps.MapTypeId.TERRAIN
+  };
+
+ var district;
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+
+  // Define the LatLng coordinates for the polygon's path.
+  var districtcoords = [ ];
+  
+  for(i=0;i<coords[0].length;i++)
+  {
+    districtcoords.push(new google.maps.LatLng(coords[0][i][1], coords[0][i][0]))
+  }
+
+  // Construct the polygon.
+  district = new google.maps.Polygon({
+    paths: districtcoords,
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35
+  });
+
+  district.setMap(map);
+}
 

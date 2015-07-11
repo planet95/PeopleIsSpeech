@@ -11,6 +11,7 @@ src: url("/fonts/BebasNeue Bold.otf") format("opentype");
 }
 body {
   /* Margin bottom by footer height */
+  height:100%;
   margin-bottom: 60px;
   background-color:#ECECEE;
   color:#000;
@@ -139,6 +140,15 @@ code {
   font-size: 80%;
 }
 
+.map{
+  height:400px;
+}
+
+#map-canvas{
+  margin:0px;
+  padding:0px;
+  height:100%;
+}
 
 .page-header{
   border-bottom:none;

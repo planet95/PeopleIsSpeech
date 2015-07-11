@@ -3,3 +3,6 @@ include ../modules/mixins
 block content
  .container
   +reps(data)
+ script.
+  var data = !{JSON.stringify(data)}
+  getBoundaries(data[0].state,data[0].district)

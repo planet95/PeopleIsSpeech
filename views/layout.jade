@@ -12,17 +12,21 @@ html(lang='en')
     script(src='/js/jquery.js')
     script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true')
     script(src='/js/bootstrap.min.js')
+    script(src='/js/index.js')  
  body
     #wrap
       header.navbar.navbar-default.navbar-fixed-top
        div.america
-        div.america2
-         div.america3
+        div.landof
+         div.thefree
           .container
             .navbar-header
               a.navbar-brand(href='#') Who Is My Rep?
+            .seperator  
             .collapse.navbar-collapse
               ul.nav.navbar-nav
+               li
+                a(href='/about') About
     #content
      block content
     .container
@@ -30,8 +34,7 @@ html(lang='en')
       #map-canvas
     #footer
       .container
-        p.text-muted.credit.navbar-inverse
-    script(src='/js/index.js')    
+        p.text-muted.credit.navbar-inverse  
     script.
      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

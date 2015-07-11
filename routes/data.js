@@ -41,13 +41,16 @@ exports.zipcode = function (req, res) {
 //ocd-division/country:us/state:nc/sldl:103
 
 exports.districts = function (req, res) {
-  var url = encodeURI('http://openstates.org/api/v1/districts/boundary/ocd-division/country:us/state:'+ req.param("state")+'/sldl:' + req.param("district") + '/?apikey=4f40f44747c44a22ba19287b9e953e4c');
+  //state districts
+  //var url = encodeURI('http://openstates.org/api/v1/districts/boundary/ocd-division/country:us/state:'+ req.param("state")+'/sldl:' + req.param("district") + '/?apikey=4f40f44747c44a22ba19287b9e953e4c');
+ var url = encodeURI('http://gis.govtrack.us/boundaries/cd-2012/'+ req.param("state")+'-' + req.param("district") + '/shape');
  console.log(url);
   request(url, function (error, response, data) {
     console.log('request sent');
     console.log(error);
     if (!error && response.statusCode == 200) {
       var data = JSON.parse(data);
+      console.log(data);
       res.json(data);
     }
   });

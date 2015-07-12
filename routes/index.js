@@ -2,8 +2,8 @@
     res.render('index', { title: 'Who Is My Rep?' });
 };
 
-exports.about = function (req, res) {
-    res.render('about', { title: 'Who Is My Rep?' });
+exports.contact = function (req, res) {
+    res.render('contact', { title: 'Who Is My Rep?' });
 };
 
 exports.search = function (req, res) {

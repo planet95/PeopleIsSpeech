@@ -37,8 +37,9 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
+  margin-top:20px;
   /* Set the fixed height of the footer here */
-  height: 60px;
+  height: 40px;
   background-color: #ECECEE;
 }
 span{
@@ -127,7 +128,8 @@ body > .container {
   padding: 60px 15px 0;
 }
 .container .text-muted {
-  margin: 20px 0;
+  margin: 7px 0;
+  font-size:10px;
 }
 
 #footer > .container {
@@ -140,6 +142,7 @@ code {
 }
 
 .map{
+  padding-bottom: 30px;
   height:400px;
 }
 

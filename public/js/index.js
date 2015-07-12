@@ -43,7 +43,7 @@
 
   function getLegislators(lat, lon) {
     $.get('/district?lat=' + lat + '&lon=' + lon, function (data) {
-      $("#content .container").html(data);
+      $("#reps .container").html(data);
     });
 
 

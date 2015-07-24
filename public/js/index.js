@@ -110,13 +110,16 @@ function initialize(coords) {
     fillColor: '#FF0000',
     fillOpacity: 0.35
   });
+  
+  var isDraggable = $(document).width() > 480 ? true : false;
   var mapOptions = {
-   zoom: 8,
- //   draggable: false,
+    zoom: 8,
+    draggable: isDraggable,
     center: bounds.getCenter(),
     mapTypeId: google.maps.MapTypeId.STREET
   };
-  var map = new google.maps.Map(document.getElementById('map-canvas'),
+  
+  var map = new google.maps.Map(document.getElementById('districtmap'),
     mapOptions);
   //var latlngbounds = new google.maps.LatLngBounds();
   //latlng.each(function(n){

@@ -1,8 +1,7 @@
 
 mixin reps(data)
- #inner-content
   .page-header
-    h1  #{data[0].state_name} - District #{district}
+    h1  #{data[0].state_name} Congressional District #{district}
    div.row
     each user,i in data
      div.col-md-4
@@ -20,3 +19,28 @@ mixin reps(data)
         a(href="https://facebook.com/#{user.facebook_id}",target="_blank",class="facebook"): i.fa.fa-facebook
         a(href="https://youtube.com/#{user.youtube_id}",target="_blank",class="youtube"): i.fa.fa-youtube-play
         a(href="#{user.contact_form}",class="website", target="_blank"): i.fa.fa-globe
+   div.container    
+    div.map
+     #districtmap    
+mixin statereps(data)
+ .page-header 
+  h1 #{statesenate[0].state} State Reps
+ div.row
+  each user,i in statesenate
+   div.col-md-4
+    div.rep(class="#{user.party}")    
+     div.face
+       a(href="#{user.url}",target="_blank",class="website"): img(src="#{user.photo_url}",class="face")
+     if(user.chamber == "upper")   
+      span Sen. #{user.first_name} #{user.last_name} <br/> 
+     else if(user.chamber == "lower")   
+      span Rep. #{user.first_name} #{user.last_name} <br/> 
+     if(user.chamber == "upper") 
+      p State House Representative
+     else if(user.chamber == "lower")
+      p State Senator
+     span District #{user.district}   
+     div.icons
+      a(href="tel:#{user.offices[0].phone}", title="#{user.phone}",class="phone"): i.fa.fa-phone
+      a(href="#{user.url}",class="website", target="_blank"): i.fa.fa-globe
+   

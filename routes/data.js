@@ -2,6 +2,7 @@
 
 exports.legislators = function(req, res){
     var url = 'https://congress.api.sunlightfoundation.com/legislators/locate?latitude='+req.query.lat+'&longitude='+req.query.lon+'&apikey=4f40f44747c44a22ba19287b9e953e4c';
+   var statedata = {};
     request(url, function (error, response, data) {
   if (!error && response.statusCode == 200) {
      var data = JSON.parse(data);
@@ -18,7 +19,16 @@ exports.legislators = function(req, res){
     data.results.sort(function(a,b){
       return a.chamber.localeCompare(b.chamber);
     });
-    res.render('data',{data:data.results, district: districts, state:districts[0].state});
+    
+  var stateurl = 'http://openstates.org/api/v1/legislators/geo/?lat='+req.query.lat+'&long='+req.query.lon+'&apikey=4f40f44747c44a22ba19287b9e953e4c';
+  request(stateurl, function (error, response, sdata) {
+  if (!error && response.statusCode == 200) {
+      statedata = JSON.parse(sdata);
+        res.render('data',{data:data.results, district: districts, state:districts[0].state, statesenate:statedata});
+}});
+   
+   
+  
    }
 });};
 

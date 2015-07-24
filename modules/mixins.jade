@@ -29,7 +29,6 @@ mixin statereps(data)
  div.row
   each user,i in statesenate
    div.col-md-4
-    -console.log(user)
     div.rep(class="#{user.party}")    
      div.face
        a(href="#{user.url}",target="_blank",class="website"): img(src="#{user.photo_url}",class="face")
@@ -38,9 +37,9 @@ mixin statereps(data)
      else if(user.chamber == "lower")   
       span Rep. #{user.first_name} #{user.last_name} <br/> 
      if(user.chamber == "upper") 
-      p State Senator
+      p State Senator [#{user.party[0]}]
      else if(user.chamber == "lower")
-      p State House Representative
+      p State House Representative [#{user.party[0]}]
      span District #{user.district}   
      div.icons
       a(href="tel:#{user.offices[0].phone}", title="#{user.phone}",class="phone"): i.fa.fa-phone

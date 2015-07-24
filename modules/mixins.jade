@@ -19,6 +19,7 @@ mixin reps(data)
         a(href="https://facebook.com/#{user.facebook_id}",target="_blank",class="facebook"): i.fa.fa-facebook
         a(href="https://youtube.com/#{user.youtube_id}",target="_blank",class="youtube"): i.fa.fa-youtube-play
         a(href="#{user.contact_form}",class="website", target="_blank"): i.fa.fa-globe
+        a(href="http://opensecrets.org/politicians/summary.php?cid=#{user.crp_id}", target="_blank"): i.fa.fa-eye
    div.container    
     div.map
      #districtmap    
@@ -28,6 +29,7 @@ mixin statereps(data)
  div.row
   each user,i in statesenate
    div.col-md-4
+    -console.log(user)
     div.rep(class="#{user.party}")    
      div.face
        a(href="#{user.url}",target="_blank",class="website"): img(src="#{user.photo_url}",class="face")
@@ -36,9 +38,9 @@ mixin statereps(data)
      else if(user.chamber == "lower")   
       span Rep. #{user.first_name} #{user.last_name} <br/> 
      if(user.chamber == "upper") 
-      p State House Representative
-     else if(user.chamber == "lower")
       p State Senator
+     else if(user.chamber == "lower")
+      p State House Representative
      span District #{user.district}   
      div.icons
       a(href="tel:#{user.offices[0].phone}", title="#{user.phone}",class="phone"): i.fa.fa-phone

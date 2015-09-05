@@ -1,37 +1,37 @@
 mixin reps(data, senate)
   .page-header
     h1  #{data[0].state_name} - District #{district}
-   div.row
-    each user,i in data
-     div.col-md-4
-      div.rep(class="#{user.party}")    
-       div.face
+    div.row
+     each user,i in data
+      div.col-md-4
+       div.rep(class="#{user.party}")    
+        div.face
          a(href="#{user.website}",target="_blank",class="website"): img(src="http://theunitedstates.io/images/congress/225x275/#{user.bioguide_id}.jpg",class="face")
-       span #{user.title}. #{user.first_name} #{user.last_name} <br/>  
-       p House Representative [#{user.party}]
-       div.icons
-        a(href="tel:#{user.phone}", title="#{user.phone}",class="phone"): i.fa.fa-phone
-        a(href="https://twitter.com/#{user.twitter_id}",target="_blank"): i.fa.fa-twitter
-        a(href="https://facebook.com/#{user.facebook_id}",target="_blank",class="facebook"): i.fa.fa-facebook
-        a(href="https://youtube.com/#{user.youtube_id}",target="_blank",class="youtube"): i.fa.fa-youtube-play
-        a(href="#{user.contact_form}",class="website", target="_blank"): i.fa.fa-envelope
-        a(href="http://opensecrets.org/politicians/summary.php?cid=#{user.crp_id}", target="_blank"): i.fa.fa-eye
-    if(senate != null)   
-    each user,i in senate
-     div.col-md-4
-      div.rep(class="#{user.party}")    
-       div.face
-         a(href="#{user.website}",target="_blank",class="website"): img(src="http://theunitedstates.io/images/congress/225x275/#{user.bioguide_id}.jpg",class="face")
-       span #{user.title}. #{user.first_name} #{user.last_name} <br/> 
-       p Senator [#{user.party}]  
-       div.icons
-        a(href="tel:#{user.phone}", title="#{user.phone}",class="phone"): i.fa.fa-phone
-        a(href="https://twitter.com/#{user.twitter_id}",target="_blank"): i.fa.fa-twitter
-        a(href="https://facebook.com/#{user.facebook_id}",target="_blank",class="facebook"): i.fa.fa-facebook
-        a(href="https://youtube.com/#{user.youtube_id}",target="_blank",class="youtube"): i.fa.fa-youtube-play
-        a(href="#{user.contact_form}",class="website", target="_blank"): i.fa.fa-envelope
-        a(href="http://opensecrets.org/politicians/summary.php?cid=#{user.crp_id}", target="_blank"): i.fa.fa-eye   
-  div.container    
-   div.map
-    #districtmap
+        span #{user.title}. #{user.first_name} #{user.last_name} <br/>  
+        p House Representative [#{user.party}]
+        div.icons
+         a(href="tel:#{user.phone}", title="#{user.phone}",class="phone"): i.fa.fa-phone
+         a(href="https://twitter.com/#{user.twitter_id}",target="_blank"): i.fa.fa-twitter
+         a(href="https://facebook.com/#{user.facebook_id}",target="_blank",class="facebook"): i.fa.fa-facebook
+         a(href="https://youtube.com/#{user.youtube_id}",target="_blank",class="youtube"): i.fa.fa-youtube-play
+         a(href="#{user.contact_form}",class="website", target="_blank"): i.fa.fa-envelope
+         a(href="http://opensecrets.org/politicians/summary.php?cid=#{user.crp_id}", target="_blank"): i.fa.fa-eye
+     if (senate != null)   
+      each user,i in senate
+       div.col-md-4
+        div.rep(class="#{user.party}")    
+         div.face
+          a(href="#{user.website}",target="_blank",class="website"): img(src="http://theunitedstates.io/images/congress/225x275/#{user.bioguide_id}.jpg",class="face")
+         span #{user.title}. #{user.first_name} #{user.last_name} <br/> 
+         p Senator [#{user.party}]  
+         div.icons
+          a(href="tel:#{user.phone}", title="#{user.phone}",class="phone"): i.fa.fa-phone
+          a(href="https://twitter.com/#{user.twitter_id}",target="_blank"): i.fa.fa-twitter
+          a(href="https://facebook.com/#{user.facebook_id}",target="_blank",class="facebook"): i.fa.fa-facebook
+          a(href="https://youtube.com/#{user.youtube_id}",target="_blank",class="youtube"): i.fa.fa-youtube-play
+          a(href="#{user.contact_form}",class="website", target="_blank"): i.fa.fa-envelope
+          a(href="http://opensecrets.org/politicians/summary.php?cid=#{user.crp_id}", target="_blank"): i.fa.fa-eye   
+   div.container    
+    div.map
+     #districtmap
    

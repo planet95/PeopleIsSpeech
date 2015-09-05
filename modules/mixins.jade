@@ -1,6 +1,12 @@
 mixin reps(data, senate)
   .page-header
-    h1  #{data[0].state_name} - District #{district}
+    if(typeof district === 'string')
+     h1  #{data[0].state_name} - District 
+      a(href="/reps/#{data[0].state}/#{district}") #{district}
+    else
+     h1  #{data[0].state_name} - District 
+      a(href="/reps/#{data[0].state}/#{district[0]}") #{district[0]},
+      a(href="/reps/#{data[0].state}/#{district[1]}") #{district[1]}
     div.row
      each user,i in data
       div.col-md-4

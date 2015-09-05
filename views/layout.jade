@@ -2,9 +2,6 @@
 html(lang='en')
   head
     meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    meta(name='description', content='')
-    meta(name='author', content='')
     title Who Is My Rep?
     link(href='/css/bootstrap.css', rel='stylesheet')
     link(href='/css/font-awesome.css', rel='stylesheet')
@@ -44,3 +41,5 @@ html(lang='en')
      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
      ga('create', 'UA-64695006-1', 'auto');
      ga('send', 'pageview');
+     var data = !{JSON.stringify(data)};
+     getBoundaries(data[0].state,data[0].district);

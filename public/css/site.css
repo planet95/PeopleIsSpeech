@@ -155,6 +155,11 @@ code {
   height:100%;
 }
 
+.rep p{
+  font-size:15px;
+  font-weight: normal;
+}
+
 .page-header{
   border-bottom:none;
   margin-top:20px;

@@ -31,12 +31,14 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+
 app.get('/contact', routes.index);
-app.get('/district', data.legislators);
+app.get('/district', data.district);
 app.get('/boundary', data.districts);
 app.get('/search', routes.search);
 app.post('/search', routes.searchpost);
 app.get('/search/:zip', data.zipcode);
+app.get('/reps/:state/:district', data.legislators);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

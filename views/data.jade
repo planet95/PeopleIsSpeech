@@ -1,9 +1,5 @@
-﻿include ../modules/mixins
+﻿extends layout
+include ../modules/mixins
 block content
- #inner-content
-  +reps(data)
-//  +statereps(statedata)
-script.
- var data = !{JSON.stringify(data)}
- var statedata = !{JSON.stringify(statesenate)}
- getBoundaries(data[0].state,data[0].district)
+ .container
+  +reps(data, senate)

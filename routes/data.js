@@ -1,8 +1,7 @@
 ﻿var request = require('request');
 
-exports.legislators = function(req, res){
-    var url = 'https://congress.api.sunlightfoundation.com/legislators/locate?latitude='+req.query.lat+'&longitude='+req.query.lon+'&apikey=4f40f44747c44a22ba19287b9e953e4c';
-   var statedata = {};
+exports.district = function(req, res){
+    var url = 'https://congress.api.sunlightfoundation.com/districts/locate?latitude='+req.query.lat+'&longitude='+req.query.lon+'&apikey=4f40f44747c44a22ba19287b9e953e4c';
     request(url, function (error, response, data) {
   if (!error && response.statusCode == 200) {
      var data = JSON.parse(data);
@@ -14,23 +13,34 @@ exports.legislators = function(req, res){
           districts.push(data.results[i].district);
         }
       }
-      
-
-    data.results.sort(function(a,b){
-      return a.chamber.localeCompare(b.chamber);
-    });
-    
-  var stateurl = 'http://openstates.org/api/v1/legislators/geo/?lat='+req.query.lat+'&long='+req.query.lon+'&apikey=4f40f44747c44a22ba19287b9e953e4c';
-  request(stateurl, function (error, response, sdata) {
-  if (!error && response.statusCode == 200) {
-      statedata = JSON.parse(sdata);
-        res.render('data',{data:data.results, district: districts, state:districts[0].state, statesenate:statedata});
-}});
-   
-   
-  
+      var urls  = "/district/" +data.results[0].state+"/" +data.results[0].district;
+      res.json(data);
+     //res.redirect(urls +'?lat='+req.query.lat+ '&lon=' +req.query.lon)
    }
 });};
+
+
+exports.legislators = function(req, res){
+  //  var url = 'https://congress.api.sunlightfoundation.com/districts/locate?latitude='+req.query.lat+'&longitude='+req.query.lon+'&apikey=4f40f44747c44a22ba19287b9e953e4c';
+     var url = 'https://congress.api.sunlightfoundation.com/legislators/?state='+req.param("state")+'&district='+req.param("district")+'&apikey=4f40f44747c44a22ba19287b9e953e4c';
+     var senateurl = 'https://congress.api.sunlightfoundation.com/legislators/?state='+req.param("state")+'&chamber=senate&apikey=4f40f44747c44a22ba19287b9e953e4c';
+     var senatedata = {};
+   request(senateurl, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+      senatedata = JSON.parse(data);
+    //res.render('results',{data:data.results, district: req.param("district"), state:req.param("state")});
+ 
+ 
+    request(url, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+     var data = JSON.parse(data);
+    res.render('data',{data:data.results, senate:senatedata.results, district: req.param("district"), state:req.param("state")});
+   }
+});
+
+  }
+});
+};
 
 exports.zipcode = function (req, res) {
   var url = 'https://congress.api.sunlightfoundation.com/legislators/locate?zip=' + req.param("zip") + '&apikey=4f40f44747c44a22ba19287b9e953e4c';

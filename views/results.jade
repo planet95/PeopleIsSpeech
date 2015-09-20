@@ -1,5 +1,11 @@
 extends layout
 include ../modules/mixins
+block meta 
+ meta(name='description', content='#{data[0].state_name} District #{district} Representative #{data[0].first_name} #{data[0].last_name}')
+ if(data[1].first_name != null)
+  title Who Is My Rep? - #{data[0].state_name} District #{district} #{data[0].first_name} #{data[0].last_name} #{data[1].first_name} #{data[1].last_name} 
+ else
+  title Who Is My Rep? - #{data[0].state_name} District #{district} #{data[0].first_name},  #{data[0].last_name}
 block content
  .container
   +reps(data)
